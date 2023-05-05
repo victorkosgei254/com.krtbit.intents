@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class LuckyNumber extends AppCompatActivity {
     String username;
-    Intent user_data;
+    Intent user_data, share_data;
     TextView message, lucky_number;
     String msg_template = ", Here is your today's lucky number";
     Random random = new Random();
@@ -36,6 +36,14 @@ public class LuckyNumber extends AppCompatActivity {
         try_again.setOnClickListener(view->{
             rdnum = random.nextInt(100);
             lucky_number.setText(rdnum.toString());
+        });
+
+        share.setOnClickListener(view->{
+            share_data = new Intent(Intent.ACTION_SEND);
+            share_data.setType("text/plain");
+            share_data.putExtra(Intent.EXTRA_SUBJECT, username+" today's lucky number.");
+            share_data.putExtra(Intent.EXTRA_TEXT,username+" got lucky today, lucky number is "+rdnum.toString());
+            startActivity(Intent.createChooser(share_data,"Share via"));
         });
 
     }

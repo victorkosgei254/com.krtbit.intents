@@ -16,4 +16,5 @@ Picture is of the first activity, asking user to add username
 Picture of the second activity
 ![Second Activity](screen2.png)
 
+![Implicit intent](screen3.png)
 All designs done by me :) 
